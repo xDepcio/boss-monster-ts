@@ -1,6 +1,6 @@
 import path from "path";
 import express, { Request, Response, NextFunction } from "express"; 'express'
-
+import {Server} from 'socket.io'
 
 // const express = require('express');
 const morgan = require('morgan');
@@ -14,7 +14,7 @@ app.use(express.json())
 
 
 const http = require("http");
-const { Server } = require("socket.io");
+// const { Server } = require("socket.io");
 const cors = require("cors");
 
 app.use(cors());
@@ -25,7 +25,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: "http://localhost:3006",
+        origin: "*",
         methods: ["GET", "POST"],
     },
 });

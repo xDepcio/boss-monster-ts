@@ -8,7 +8,7 @@ import GamePage from './components/GamePage';
 import io from "socket.io-client";
 
 
-export const socket = io.connect("http://localhost:3001");
+export const socket = io.connect("https://1a5f-89-77-42-98.ngrok-free.app");
 
 function App() {
 
