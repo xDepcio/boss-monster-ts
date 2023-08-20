@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom'
 import { symbolImage } from '../../static/constants'
 import { saveResponseError } from '../utils'
 import './SelectionCompPlayers.css'
-
+import { SFetch } from '../../utils'
 
 function SelectionCompPlayers() {
     const dispatch = useDispatch()
@@ -14,7 +14,7 @@ function SelectionCompPlayers() {
     const players = useSelector(state => state.game.players)
 
     function handleSelectPlayer(playerId) {
-        const res = fetch(`/game/${params.lobbyId}/select-item`, {
+        const res = SFetch(`/game/${params.lobbyId}/select-item`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

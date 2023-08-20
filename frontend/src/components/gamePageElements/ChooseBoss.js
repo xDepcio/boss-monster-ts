@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import { saveResponseError } from '../utils'
 import CardBoss from './CardBoss'
 import './ChooseBoss.css'
-
+import { SFetch } from '../../utils'
 
 function ChooseBoss() {
     const params = useParams()
@@ -12,7 +12,7 @@ function ChooseBoss() {
     const dispatch = useDispatch()
 
     function handleBossSelect(boss) {
-        const res = fetch(`/game/${params.lobbyId}/choose-boss`, {
+        const res = SFetch(`/game/${params.lobbyId}/choose-boss`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

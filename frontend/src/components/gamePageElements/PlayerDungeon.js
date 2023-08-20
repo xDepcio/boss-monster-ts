@@ -12,7 +12,7 @@ import CardHero from './CardHero'
 import EmptyDungeon from './EmptyDungeon'
 import HeroToMoveMarker from './HeroToMoveMarker'
 import './PlayerDungeon.css'
-
+import { SFetch } from '../../utils'
 
 function PlayerDungeon({ player, selectedDungCard, setSelectedDungCard }) {
     const selfPlayer = useSelector(state => state.game.selfPlayer)
@@ -28,7 +28,7 @@ function PlayerDungeon({ player, selectedDungCard, setSelectedDungCard }) {
         if (player.id === selfPlayer.id && selectedDungCard) {
             selectedDungCard.htmlElement.classList.remove('card-selected')
             setSelectedDungCard(null)
-            const res = fetch(`/game/${params.lobbyId}/build-dungeon`, {
+            const res = SFetch(`/game/${params.lobbyId}/build-dungeon`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -44,7 +44,7 @@ function PlayerDungeon({ player, selectedDungCard, setSelectedDungCard }) {
     }
 
     function handleDestroyDungeon(dungeonId) {
-        const res = fetch(`/game/${params.lobbyId}/destroy-dungeon`, {
+        const res = SFetch(`/game/${params.lobbyId}/destroy-dungeon`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -58,7 +58,7 @@ function PlayerDungeon({ player, selectedDungCard, setSelectedDungCard }) {
     }
 
     function handleBecomeReady() {
-        const res = fetch(`/game/${params.lobbyId}/become-ready`, {
+        const res = SFetch(`/game/${params.lobbyId}/become-ready`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -71,7 +71,7 @@ function PlayerDungeon({ player, selectedDungCard, setSelectedDungCard }) {
     }
 
     function handleAcceptHeroMove() {
-        const res = fetch(`/game/${params.lobbyId}/accept-hero-move`, {
+        const res = SFetch(`/game/${params.lobbyId}/accept-hero-move`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -84,7 +84,7 @@ function PlayerDungeon({ player, selectedDungCard, setSelectedDungCard }) {
     }
 
     function handleUseDungeon(dungeonId) {
-        const res = fetch(`/game/${params.lobbyId}/use-dungeon`, {
+        const res = SFetch(`/game/${params.lobbyId}/use-dungeon`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -98,7 +98,7 @@ function PlayerDungeon({ player, selectedDungCard, setSelectedDungCard }) {
     }
 
     function handleUseCutomCardAction(actionId) {
-        const res = fetch(`/game/${params.lobbyId}/use-custom-action`, {
+        const res = SFetch(`/game/${params.lobbyId}/use-custom-action`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -8,7 +8,11 @@ import GamePage from './components/GamePage';
 import io from "socket.io-client";
 
 
-export const socket = io.connect("http://localhost:3001");
+export const socket = io({
+    extraHeaders: {
+        "ngrok-skip-browser-warning": "69420"
+    }
+});
 
 function App() {
 

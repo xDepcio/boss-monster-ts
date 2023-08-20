@@ -1,4 +1,5 @@
 import { parse } from "flatted"
+import { SFetch } from "../utils"
 
 const LOAD_LOBBY_INFO = 'loadLobbyInfo'
 
@@ -14,7 +15,7 @@ export const loadLobbyInfo = (info) => {
 
 // Thunk actions creator
 export const getLobbyInfo = (lobbyId) => async (dispatch) => {
-    const response = await fetch(`/lobby/${lobbyId}`)
+    const response = await SFetch(`/lobby/${lobbyId}`)
 
     if (response.ok) {
         // const lobbyData = await response.json()

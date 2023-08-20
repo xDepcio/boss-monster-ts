@@ -25,8 +25,8 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: "http://localhost:3006",
-        methods: ["GET", "POST"],
+        origin: "*",
+        // methods: ["GET", "POST"],
     },
 });
 
@@ -66,8 +66,8 @@ app.use((err: any, _req: Request, res: Response, _next: NextFunction): any => {
 
 
 
-server.listen(3001, () => {
-    console.log("SERVER IS RUNNING on 3001");
+server.listen(3000, () => {
+    console.log("SERVER IS RUNNING on 3000");
 });
 
 

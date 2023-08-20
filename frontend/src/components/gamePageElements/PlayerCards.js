@@ -9,7 +9,7 @@ import CardSpell from './CardSpell'
 import { useParams } from 'react-router-dom'
 import Cookies from 'js-cookie'
 import { saveResponseError } from '../utils'
-
+import { SFetch } from '../../utils'
 
 function PlayerCards({ setSelectedDungCard, selectedDungCard }) {
     const selfPlayer = useSelector(state => state.game.selfPlayer)
@@ -68,7 +68,7 @@ function PlayerCards({ setSelectedDungCard, selectedDungCard }) {
     }
 
     function handlePlaySpellCard() {
-        const res = fetch(`/game/${params.lobbyId}/play-spell`, {
+        const res = SFetch(`/game/${params.lobbyId}/play-spell`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

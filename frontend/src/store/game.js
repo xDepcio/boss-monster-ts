@@ -1,5 +1,6 @@
 import Cookies from 'js-cookie'
 import { stringify, parse, fromJSON, toJSON } from 'flatted'
+import { SFetch } from '../utils'
 
 
 const LOAD_GAME_INFO = 'loadGameInfo'
@@ -25,7 +26,7 @@ export const loadErrorMessage = (errorMessage) => {
 
 // Thunk actions creator
 export const getGameInfo = (lobbyId) => async (dispatch) => {
-    const response = await fetch(`/game/${lobbyId}`)
+    const response = await SFetch(`/game/${lobbyId}`)
 
     if (response.ok) {
         const gameData = await response.text()

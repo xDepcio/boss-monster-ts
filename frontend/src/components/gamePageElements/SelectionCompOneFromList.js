@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import { symbolImage } from '../../static/constants'
 import { saveResponseError } from '../utils'
 import './SelectionCompOneFromList.css'
-
+import { SFetch } from '../../utils'
 
 function SelectionCompOneFromList() {
     const avalibleItemsForSelectArr = useSelector(state => state.game?.selfPlayer?.requestedSelection?.avalibleItemsForSelectArr)
@@ -13,7 +13,7 @@ function SelectionCompOneFromList() {
     const params = useParams()
 
     function handleSelectItem(item) {
-        const res = fetch(`/game/${params.lobbyId}/select-item`, {
+        const res = SFetch(`/game/${params.lobbyId}/select-item`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

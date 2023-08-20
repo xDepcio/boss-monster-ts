@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import { symbolImage } from '../../static/constants'
 import { saveResponseError } from '../utils'
 import './SelectionCompTreasure.css'
-
+import { SFetch } from '../../utils'
 
 function SelectionCompTreasure() {
     const requestedSelection = useSelector(state => state.game?.selfPlayer?.requestedSelection)
@@ -12,7 +12,7 @@ function SelectionCompTreasure() {
     const params = useParams()
 
     function handleSelectTreasureSymbol(treasureSymbol) {
-        const res = fetch(`/game/${params.lobbyId}/select-item`, {
+        const res = SFetch(`/game/${params.lobbyId}/select-item`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
