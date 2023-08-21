@@ -1,0 +1,11 @@
+version: "2"
+authtoken: 2IjGIbAFKJGPJV9o5OetnWPterD_2NeH5pWeoSxkSZZh3xMEF
+
+tunnels:
+  react-app:
+    addr: 5000
+    proto: http
+    host_header: rewrite
+  express-server:
+    addr: 3000
+    proto: http

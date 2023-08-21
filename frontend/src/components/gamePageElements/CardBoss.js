@@ -44,7 +44,10 @@ function CardBoss({ width, _className, bgImage, description = '', mainImg, treas
             <p className='card-info-comp card-comp boss-card-desc' style={{ fontSize: getBossDescEm(description?.length ?? '') }} >{description ?? ''}</p>
             <img className='card-info-comp card-img-comp card-comp card-type-comp' src={'/images/dungeon_types/monsters_symbol.png'} />
             <img className='card-info-comp card-img-comp card-comp card-bg-comp' src={bgUrl || '/images/red_bg_canvas.png'} />
-            <img className='card-info-comp card-img-comp card-comp card-main-img-comp' src={mainImg || '/images/bosses/boss_ROBOBO.png'} />
+
+            {/* <img className='card-info-comp card-img-comp card-comp card-main-img-comp' src={mainImg || '/images/bosses/boss_ROBOBO.png'} /> */}
+            <img className='card-info-comp card-img-comp card-comp card-main-img-comp' src={"https://previews.dropbox.com/p/thumb/ACDqx6dPQyOiyhoo1gY9--crFkz6Pi34DzNuVscgSQg-jJXpXmSnZIBh0wAsgRnrT7bn4Pj-Md6KX7PKO8vLwYLq-4kTfyStZvzcCbnyeutfQ1fwSKzYVch-fPV4QwxrlAPNsJirb2VN29BFpy_cXYtWU7ajegkm5UgHXddesLBmQ4TDoEIYYrk9ay5aV3OY-wMvvlSrot8qzCoZn0waSutXki6ntvWwzEFjsxxDXqwJv_2zNUgFAha_WOYxESI5R2nfKMJal6QKqvVNE4ZXxVO2e9p4bzERGUxIqGfECmB6DVUBp5SY-fZWluVrQUlpeolMdKG1srG4f_FcvG8eaSHj/p.png"} />
+
             {cardTreasureArr.map((symbol, i) => {
                 return (
                     <img key={i} style={{
