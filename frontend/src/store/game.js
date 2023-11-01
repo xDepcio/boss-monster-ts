@@ -1,5 +1,6 @@
 import Cookies from 'js-cookie'
 import { stringify, parse, fromJSON, toJSON } from 'flatted'
+import { backendUrlBase } from '../constants'
 
 
 const LOAD_GAME_INFO = 'loadGameInfo'
@@ -25,7 +26,8 @@ export const loadErrorMessage = (errorMessage) => {
 
 // Thunk actions creator
 export const getGameInfo = (lobbyId) => async (dispatch) => {
-    const response = await fetch(`/game/${lobbyId}`)
+    // const response = await fetch(`/game/${lobbyId}`)
+    const response = await fetch(`${backendUrlBase}/game/${lobbyId}`)
 
     if (response.ok) {
         const gameData = await response.text()

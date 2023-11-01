@@ -9,6 +9,7 @@ import CardSpell from './CardSpell'
 import { useParams } from 'react-router-dom'
 import Cookies from 'js-cookie'
 import { saveResponseError } from '../utils'
+import { backendUrlBase } from '../../constants'
 
 
 function PlayerCards({ setSelectedDungCard, selectedDungCard }) {
@@ -68,7 +69,7 @@ function PlayerCards({ setSelectedDungCard, selectedDungCard }) {
     }
 
     function handlePlaySpellCard() {
-        const res = fetch(`/game/${params.lobbyId}/play-spell`, {
+        const res = fetch(`${backendUrlBase}/game/${params.lobbyId}/play-spell`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

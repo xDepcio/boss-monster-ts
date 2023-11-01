@@ -1,6 +1,8 @@
 import path from "path";
 import express, { Request, Response, NextFunction } from "express"; 'express'
 import {Server} from 'socket.io'
+import cors from 'cors'
+import{createServer} from 'http'
 
 // const express = require('express');
 const morgan = require('morgan');
@@ -13,20 +15,19 @@ app.use(cookieParser());
 app.use(express.json())
 
 
-const http = require("http");
+// const http = require("http");
 // const { Server } = require("socket.io");
-const cors = require("cors");
+// const cors = require("cors");
 
-app.use(cors());
+app.use(cors({origin: '*'}));
 
 // test comment
 
-const server = http.createServer(app);
+const server = createServer(app)
 
 const io = new Server(server, {
     cors: {
         origin: "*",
-        methods: ["GET", "POST"],
     },
 });
 
@@ -66,10 +67,10 @@ app.use((err: any, _req: Request, res: Response, _next: NextFunction): any => {
 
 
 
-server.listen(3001, () => {
-    console.log("SERVER IS RUNNING on 3001");
-});
-
+// server.listen(3001, () => {
+//     console.log("SERVER IS RUNNING on 3001");
+// });
+server.listen(3001)
 
 
 // const express = require('express');

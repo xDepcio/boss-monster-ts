@@ -6,9 +6,10 @@ import { useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import GamePage from './components/GamePage';
 import io from "socket.io-client";
+import { backendUrlBase } from './constants';
 
 
-export const socket = io.connect("https://1a5f-89-77-42-98.ngrok-free.app");
+export const socket = io.connect(backendUrlBase);
 
 function App() {
 

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { saveResponseError } from '../utils'
 import CardBoss from './CardBoss'
 import './ChooseBoss.css'
+import { backendUrlBase } from '../../constants'
 
 
 function ChooseBoss() {
@@ -12,7 +13,7 @@ function ChooseBoss() {
     const dispatch = useDispatch()
 
     function handleBossSelect(boss) {
-        const res = fetch(`/game/${params.lobbyId}/choose-boss`, {
+        const res = fetch(`${backendUrlBase}/game/${params.lobbyId}/choose-boss`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
